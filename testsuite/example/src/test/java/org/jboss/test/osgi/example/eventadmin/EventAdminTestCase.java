@@ -31,6 +31,7 @@ import java.util.List;
 
 import org.jboss.arquillian.container.test.api.Deployer;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.container.test.api.OperateOnDeployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import org.jboss.arquillian.test.api.ArquillianResource;
@@ -91,7 +92,7 @@ public class EventAdminTestCase {
                 builder.addBundleManifestVersion(2);
                 builder.addImportPackages(XRequirementBuilder.class, XRequirement.class, Repository.class, Resource.class);
                 builder.addImportPackages(PackageAdmin.class);
-                builder.addDynamicImportPackages(EventAdmin.class.getPackage().getName());
+                builder.addDynamicImportPackages(EventAdmin.class);
                 return builder.openStream();
             }
         });

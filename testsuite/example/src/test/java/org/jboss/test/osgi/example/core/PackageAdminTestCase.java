@@ -18,6 +18,8 @@ package org.jboss.test.osgi.example.core;
 
 import java.io.InputStream;
 
+import javax.management.MBeanServer;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
@@ -30,6 +32,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.osgi.framework.Bundle;
 import org.osgi.service.packageadmin.PackageAdmin;
+import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Add support for injected PackageAdmin

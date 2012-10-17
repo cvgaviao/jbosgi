@@ -90,8 +90,7 @@ public class BlueprintTestCase {
                 builder.addBundleSymbolicName(archive.getName());
                 builder.addBundleManifestVersion(2);
                 builder.addImportPackages(XRequirementBuilder.class, XRequirement.class, Repository.class, Resource.class);
-                builder.addDynamicImportPackages(BlueprintContainer.class.getPackage().getName());
-                builder.addDynamicImportPackages(MBeanServer.class.getPackage().getName());
+                builder.addDynamicImportPackages(BlueprintContainer.class, MBeanServer.class);
                 builder.addImportPackages(PackageAdmin.class, ServiceTracker.class);
                 builder.addExportPackages(ServiceA.class);
                 return builder.openStream();
@@ -136,15 +135,15 @@ public class BlueprintTestCase {
             BlueprintContainer container = BlueprintSupport.getBlueprintContainer(bundle);
             assertNotNull("BlueprintContainer available", container);
 
-            ServiceReference srefA = context.getServiceReference(ServiceA.class.getName());
+            ServiceReference<ServiceA> srefA = context.getServiceReference(ServiceA.class);
             assertNotNull("ServiceA not null", srefA);
-            ServiceA serviceA = (ServiceA) context.getService(srefA);
+            ServiceA serviceA = context.getService(srefA);
             MBeanServer mbeanServer = serviceA.getMbeanServer();
             assertNotNull("MBeanServer not null", mbeanServer);
 
-            ServiceReference srefB = context.getServiceReference(ServiceB.class.getName());
+            ServiceReference<ServiceB> srefB = context.getServiceReference(ServiceB.class);
             assertNotNull("ServiceB not null", srefB);
-            ServiceB serviceB = (ServiceB) context.getService(srefB);
+            ServiceB serviceB = context.getService(srefB);
             BeanA beanA = serviceB.getBeanA();
             assertNotNull("BeanA not null", beanA);
         } finally {

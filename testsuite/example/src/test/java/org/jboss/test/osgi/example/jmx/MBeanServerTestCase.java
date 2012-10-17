@@ -128,8 +128,8 @@ public class MBeanServerTestCase {
         try {
             bundle.start();
 
-            ServiceReference sref = context.getServiceReference(MBeanServer.class.getName());
-            MBeanServer server = (MBeanServer) context.getService(sref);
+            ServiceReference<MBeanServer> sref = context.getServiceReference(MBeanServer.class);
+            MBeanServer server = context.getService(sref);
 
             ObjectName oname = ObjectName.getInstance(FooMBean.MBEAN_NAME);
             FooMBean foo = JMXSupport.getMBeanProxy(server, oname, FooMBean.class);

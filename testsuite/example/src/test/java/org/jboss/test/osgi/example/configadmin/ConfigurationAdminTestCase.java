@@ -80,7 +80,7 @@ public class ConfigurationAdminTestCase {
                 builder.addBundleSymbolicName(archive.getName());
                 builder.addBundleManifestVersion(2);
                 builder.addImportPackages(XRequirementBuilder.class, MavenCoordinates.class, Repository.class, Resource.class);
-                builder.addDynamicImportPackages(ConfigurationAdmin.class.getPackage().getName());
+                builder.addDynamicImportPackages(ConfigurationAdmin.class);
                 return builder.openStream();
             }
         });
