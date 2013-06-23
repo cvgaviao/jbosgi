@@ -79,7 +79,7 @@
         <version.junit>4.10</version.junit>
         <version.osgi>5.0.0</version.osgi>
         <version.slf4j>1.6.4</version.slf4j>
-        <version.wildfly.800>8.0.0.Alpha2-SNAPSHOT</version.wildfly.800>
+        <version.wildfly.800>8.0.0.Alpha3-SNAPSHOT</version.wildfly.800>
     </properties>
 
     <!-- DependencyManagement -->
